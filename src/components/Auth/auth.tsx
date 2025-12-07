@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button } from '../ui/button';
 import { Input } from '../ui/login-input';
-import PalmOilLogo from '../assets/palm-oil.png';
+import PalmOilLogo from '../../assets/palm-oil.png';
 
 interface AuthProps {
   onAuthSuccess: () => void;

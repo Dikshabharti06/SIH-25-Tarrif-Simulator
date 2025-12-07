@@ -1,9 +1,9 @@
 import React from 'react';
 import { Button } from '../components/ui/button';
-import MinLogo from '../assets/min-logo.png';
-import DashOne from '../assets/dashboard1.png';
-import DashTwo from '../assets/dashboard2.png';
-import DashThree from '../assets/dashboard3.png';
+import MinLogo from '../../assets/min-logo.png';
+import DashOne from '../../assets/dashboard1.png';
+import DashTwo from '../../assets/dashboard2.png';
+import DashThree from '../../assets/dashboard3.png';
 
 interface NavbarProps {
   onLoginClick: () => void;
