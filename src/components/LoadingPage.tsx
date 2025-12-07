@@ -2,7 +2,7 @@ import { Button } from './ui/button';
 import { Card } from './ui/card';
 import { TrendingUp, BarChart3, FileText } from 'lucide-react';
 import Header from './Header';
-import bgCover from '../../assets/bg-cover.jpg'
+import bgCover from '/bg-cover.jpg'
 
 interface LandingPageProps {
   onStart: () => void;
