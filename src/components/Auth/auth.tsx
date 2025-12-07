@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button } from '../ui/button';
 import { Input } from '../ui/login-input';
+import PalmOilLogo from '../src/assets/palm-oil.png';
 
 interface AuthProps {
   onAuthSuccess: () => void;
@@ -32,7 +33,7 @@ const AuthPage: React.FC<AuthProps> = ({ onAuthSuccess, onBack }) => {
           </h1>
           <div className="w-full h-64 rounded-3xl overflow-hidden shadow-2xl border border-white/20 transition-transform duration-500 hover:scale-105 mx-auto">
             <img 
-              src="../src/assets/palm-oil.png"
+              src={PalmOilLogo}
               alt="Palm Oil Graphic"
               className="w-full h-full object-cover"
             />

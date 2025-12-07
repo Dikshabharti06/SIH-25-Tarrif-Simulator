@@ -1,7 +1,7 @@
 import { Button } from './ui/button';
 import { Card } from './ui/card';
 import { TrendingUp, BarChart3, FileText } from 'lucide-react';
-
+import bgCover from '../src/assets/bg-cover.jpg';
 import Header from './Header';
 
 interface LandingPageProps {
@@ -23,7 +23,9 @@ const LandingPage: React.FC<LandingProps> = ({ onLoginClick }) => {
 export function LoadingPage({ onStart }: LandingPageProps) {
   return (
     <>
-    <Header/>
+    <Header onLogout={function (): void {
+        throw new Error('Function not implemented.');
+      } }/>
     <div className="container mx-auto px-4 py-12 max-w-6xl">
       {/* Header */}
       <div className="text-center mb-12">
@@ -113,7 +115,7 @@ export function LoadingPage({ onStart }: LandingPageProps) {
     </div>
         {/* Image insertion */}
       <div className="w-full h-full overflow-hidden">
-        <img src="../src/assests/bg cover.jpg" className="w-full h-full rounded-xl" />
+        <img src={bgCover} className="w-full h-full rounded-xl" />
         </div>
       {/* Info Section */}
       <div className=" p-4 text-center text-sm text-gray-600">

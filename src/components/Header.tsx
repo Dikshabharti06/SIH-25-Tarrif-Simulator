@@ -1,5 +1,6 @@
 import React from "react";
 import { LogOut, User } from "lucide-react";
+import MinLogo from "../src/assets/min-logo.png";
 
 interface HeaderProps {
   onLogout: () => void;
@@ -27,7 +28,7 @@ const Header: React.FC<HeaderProps> = ({ onLogout, userName = "Admin User" }) =>
           {/* Project Logo */}
           <div className="w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-lg bg-white border border-gray-100">
             <img 
-              src="../src/assets/min-logo.png" 
+              src={MinLogo}
               alt="Logo" 
               className="w-full h-full rounded-full object-cover"
             />

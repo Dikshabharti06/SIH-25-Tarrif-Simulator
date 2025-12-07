@@ -1,5 +1,9 @@
 import React from 'react';
 import { Button } from '../components/ui/button';
+import MinLogo from '../src/assets/min-logo.png';
+import DashOne from '../src/assets/dashboard1.png';
+import DashTwo from '../src/assets/dashboard2.png';
+import DashThree from '../src/assets/dashboard3.png';
 
 interface NavbarProps {
   onLoginClick: () => void;
@@ -9,7 +13,7 @@ const Navbar: React.FC<NavbarProps> = ({ onLoginClick }) => (
   <nav className="flex items-center justify-between px-8 py-4 bg-white border-b border-gray-100">
     <div className="flex items-center gap-3">
   <div className="w-10 h-10 rounded-full bg-linear-to-br from-green-600 to-green-800 flex items-center justify-center shadow-md">
-    <img className="rounded-full hover:scale-110" src='../src/assets/min-logo.png'/>
+    <img className="rounded-full hover:scale-110" src={MinLogo}/>
   </div>
 
   <div className="leading-tight">
@@ -83,19 +87,19 @@ const LandingPage: React.FC<LandingProps> = ({ onLoginClick }) => {
       
       {/* Slide 1 */}
       <div className="min-w-full h-72 md:h-96 flex items-center justify-center snap-center bg-linear-to-br from-green-700 to-green-800">
-        <img src="../src/assets/dashboard1.png"
+        <img src={DashOne}
           className="w-full h-full rounded-xl" alt="Dashboard Preview 1" />
       </div>
 
       {/* Slide 2 */}
       <div className="min-w-full h-72 md:h-96 flex items-center justify-center snap-center bg-green-600/50">
-        <img src="../src/assets/dashboard2.png"
+        <img src={DashTwo}
           className="w-full h-full rounded-xl" alt="Dashboard Preview 2" />
       </div>
 
       {/* Slide 3 */}
       <div className="min-w-full h-72 md:h-96 flex items-center justify-center snap-center bg-green-500/40">
-        <img src="../src/assets/dashboard3.png"
+        <img src={DashThree}
           className="w-full h-full rounded-xl" alt="Dashboard Preview 3" />
       </div>
 
