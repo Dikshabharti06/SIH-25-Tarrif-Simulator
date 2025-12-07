@@ -1,8 +1,8 @@
 "use client";
 
 import * as React from "react";
-import * as ToggleGroupPrimitive from "@radix-ui/react-toggle-group@1.1.2";
-import { type VariantProps } from "class-variance-authority@0.7.1";
+import * as ToggleGroupPrimitive from "@radix-ui/react-toggle-group";
+import { type VariantProps } from "class-variance-authority";
 
 import { cn } from "./utils";
 import { toggleVariants } from "./toggle";
@@ -16,8 +16,8 @@ const ToggleGroupContext = React.createContext<
 
 function ToggleGroup({
   className,
-  variant,
-  size,
+  variant = "default",
+  size = "default",
   children,
   ...props
 }: React.ComponentProps<typeof ToggleGroupPrimitive.Root> &
@@ -28,8 +28,8 @@ function ToggleGroup({
       data-variant={variant}
       data-size={size}
       className={cn(
-        "group/toggle-group flex w-fit items-center rounded-md data-[variant=outline]:shadow-xs",
-        className,
+        "flex w-fit items-center rounded-md overflow-hidden shadow-sm border border-green-500",
+        className
       )}
       {...props}
     >
@@ -50,18 +50,18 @@ function ToggleGroupItem({
   VariantProps<typeof toggleVariants>) {
   const context = React.useContext(ToggleGroupContext);
 
+  const appliedVariant = context.variant || variant;
+  const appliedSize = context.size || size;
+
   return (
     <ToggleGroupPrimitive.Item
       data-slot="toggle-group-item"
-      data-variant={context.variant || variant}
-      data-size={context.size || size}
       className={cn(
-        toggleVariants({
-          variant: context.variant || variant,
-          size: context.size || size,
-        }),
-        "min-w-0 flex-1 shrink-0 rounded-none shadow-none first:rounded-l-md last:rounded-r-md focus:z-10 focus-visible:z-10 data-[variant=outline]:border-l-0 data-[variant=outline]:first:border-l",
-        className,
+        toggleVariants({ variant: appliedVariant, size: appliedSize }),
+        "data-[state=on]:bg-green-700 data-[state=on]:text-white",
+        "border-r border-green-500 first:rounded-l-md last:rounded-r-md",
+        "hover:bg-green-200 transition-all",
+        className
       )}
       {...props}
     >

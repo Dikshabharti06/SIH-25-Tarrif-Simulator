@@ -7,7 +7,7 @@ const Header: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
        <div className="flex items-center gap-2">
   
-  <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center shadow-lg">
+  <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center hover:scale-110 shadow-lg">
     <img 
       src="../src/assests/connexa logo.jpg" 
       alt="Logo" 
@@ -16,23 +16,22 @@ const Header: React.FC = () => {
   </div>
 
   <div className="flex flex-col">
-    <h1 className="text-xl px-3 font-bold tracking-tight text-green-900 drop-shadow-sm">
+    <h1 className="text-2xl px-4 font-bold tracking-tight text-green-900 drop-shadow-sm">
       Connexa
     </h1>
 
     <span
-      className="text-s font-semibold text-black px-3 py-2 rounded-full mt-1
-      bg-linear-to-r from-green-700 to-green-500 shadow-sm border border-yellow-400"
+      className="text-s font-semibold text-white px-3 py-2 rounded-full mt-1 bg-linear-to-r from-green-600 to-green-700 shadow-sm hover:scale-110"
     >
       Team ID: 25271
     </span>
   </div>
 
 </div>
-        <button className="bg-green-700 hover:bg-green-800 text-black font-semibold 
+        <button className="bg-green-700 hover:bg-green-800 text-white font-semibold 
           px-6 py-3 rounded-lg flex items-center gap-2 transition-transform 
           duration-200 hover:scale-105 shadow-md">
-          <Rocket className="w-5 h-5" />
+          <Rocket className="w-6 h-6" />
         </button>
       </div>
     </header>

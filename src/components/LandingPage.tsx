@@ -74,37 +74,40 @@ export function LandingPage({ onStart }: LandingPageProps) {
 
       {/* Additional Features */}
       <div className="grid md:grid-cols-4 gap-4 mb-8">
-        <Card className="p-4 bg-linear-to-br from-green-50 to-emerald-50 border-green-200">
+        <Card className="p-6 bg-linear-to-br from-green-50 to-emerald-50 border-green-200">
           <p className="text-sm font-medium text-green-900 mb-1">NMEO-OP Target Calculator</p>
           <p className="text-xs text-green-700">
             Reverse-engineer the policy mix needed to achieve self-reliance goals
           </p>
         </Card>
-        <Card className="p-4 bg-linear-to-br from-orange-50 to-amber-50 border-orange-200">
+        <Card className="p-6 bg-linear-to-br from-orange-50 to-amber-50 border-orange-200">
           <p className="text-sm font-medium text-orange-900 mb-1">Historical Comparison</p>
           <p className="text-xs text-orange-700">
             Learn from 2019-2025 policy decisions and avoid past mistakes
           </p>
         </Card>
-        <Card className="p-4 bg-linear-to-br from-purple-50 to-violet-50 border-purple-200">
+        <Card className="p-6 bg-linear-to-br from-purple-50 to-violet-50 border-purple-200">
           <p className="text-sm font-medium text-purple-900 mb-1">Sensitivity Analysis</p>
           <p className="text-xs text-purple-700">
             Explainable AI showing mathematical rigor and variable interactions
           </p>
         </Card>
-        <Card className="p-4 bg-linear-to-br from-blue-50 to-cyan-50 border-blue-200">
+        <Card className="p-6 bg-linear-to-br from-blue-50 to-cyan-50 border-blue-200">
           <p className="text-sm font-medium text-blue-900 mb-1">Scenario Save & Share</p>
           <p className="text-xs text-blue-700">
             Save and compare multiple scenarios for collaborative policy review
           </p>
         </Card>
-      </div>
-
+    </div>
+        {/* Image insertion */}
+      <div className="w-full h-full overflow-hidden">
+        <img src="../src/assests/bg cover.jpg" className="w-full h-full rounded-xl" />
+        </div>
       {/* Info Section */}
-      <div className="text-center text-sm text-gray-600">
+      <div className=" p-4 text-center text-sm text-gray-600">
         <p>Designed for India's Ministry of Commerce policy analysis</p>
       </div>
-    </div>
+      </div>
     </>
   );
 }
