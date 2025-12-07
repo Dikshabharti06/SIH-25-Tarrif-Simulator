@@ -1,7 +1,6 @@
 import { Button } from './ui/button';
 import { Card } from './ui/card';
 import { TrendingUp, BarChart3, FileText } from 'lucide-react';
-import bgCover from '../assets/bg-cover.jpg';
 import Header from './Header';
 
 interface LandingPageProps {
@@ -115,7 +114,7 @@ export function LoadingPage({ onStart }: LandingPageProps) {
     </div>
         {/* Image insertion */}
       <div className="w-full h-full overflow-hidden">
-        <img src={bgCover} className="w-full h-full rounded-xl" />
+        <img src='../assets/bg-cover.jpg' className="w-full h-full rounded-xl" />
         </div>
       {/* Info Section */}
       <div className=" p-4 text-center text-sm text-gray-600">
