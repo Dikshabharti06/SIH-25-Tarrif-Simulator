@@ -27,7 +27,7 @@ const Header: React.FC<HeaderProps> = ({ onLogout, userName = "Admin User" }) =>
           {/* Project Logo */}
           <div className="w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-lg bg-white border border-gray-100">
             <img 
-              src="../src/assests/min-logo.png" 
+              src="../src/assets/min-logo.png" 
               alt="Logo" 
               className="w-full h-full rounded-full object-cover"
             />

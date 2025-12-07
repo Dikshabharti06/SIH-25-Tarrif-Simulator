@@ -32,7 +32,7 @@ const AuthPage: React.FC<AuthProps> = ({ onAuthSuccess, onBack }) => {
           </h1>
           <div className="w-full h-64 rounded-3xl overflow-hidden shadow-2xl border border-white/20 transition-transform duration-500 hover:scale-105 mx-auto">
             <img 
-              src="../src/assests/palm-oil.png"
+              src="../src/assets/palm-oil.png"
               alt="Palm Oil Graphic"
               className="w-full h-full object-cover"
             />
