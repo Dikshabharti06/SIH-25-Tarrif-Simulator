@@ -1,6 +1,6 @@
 import React from "react";
 import { LogOut, User } from "lucide-react";
-import MinLogo from "../src/assets/min-logo.png";
+import MinLogo from "../assets/min-logo.png";
 
 interface HeaderProps {
   onLogout: () => void;
