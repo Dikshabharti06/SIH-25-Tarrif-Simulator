@@ -6,7 +6,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, Di
 import { Label } from './ui/label';
 import { Save, FolderOpen, Trash2, Download } from 'lucide-react';
 import { Badge } from './ui/badge';
-import PolicyDashboard from './Dashboard';
+// import PolicyDashboard from './Dashboard';
 
 interface Scenario {
   id: string;
@@ -180,9 +180,9 @@ export function ScenarioManager({ currentScenario, onLoadScenario }: ScenarioMan
         </div>
       )}
     </Card>
-    <div>
+    {/* <div>
       <PolicyDashboard/>
-    </div>
+    </div> */}
     </>
   );
 }
