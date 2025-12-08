@@ -28,16 +28,16 @@ const AuthPage: React.FC<AuthProps> = ({ onAuthSuccess, onBack }) => {
         <div className="absolute inset-0 opacity-10 bg-[url('/palm-leaf.svg')] bg-cover bg-center"></div>
 
         <div className="relative z-10 max-w-lg text-center space-y-6">
-          <h1 className="text-4xl font-extrabold tracking-tight leading-snug">
-            Palm Oil Impact Simulator
-          </h1>
-          <div className="w-full h-64 rounded-3xl overflow-hidden shadow-2xl border border-white/20 transition-transform duration-500 hover:scale-105 mx-auto">
+          <div className="w-full h-full rounded-3xl overflow-hidden shadow-2xl border border-white/20 transition-transform duration-500 hover:scale-105 mx-auto">
             <img 
               src={PalmOilLogo}
               alt="Palm Oil Graphic"
-              className="w-full h-full object-cover"
+              className= "w-full h-full bg-cover bg-center"
             />
           </div>
+          <h1 className="text-4xl font-extrabold tracking-tight leading-snug">
+            Palm Oil Impact Simulator
+          </h1>
           <p className="text-base text-green-100 leading-relaxed">
             Analyze tariff policies affecting the palm oil ecosystem. Monitor impact on
             farmers, industries & consumers using Agent-Based Modelling.
@@ -69,8 +69,8 @@ const AuthPage: React.FC<AuthProps> = ({ onAuthSuccess, onBack }) => {
             </h2>
             <p className="text-green-800 mt-2">
               {isLoginMode
-                ? 'Sign in to access simulation tools'
-                : 'Join as evaluator or stakeholder'}
+                ? 'Sign in to access Simulation tools'
+                : 'Join us as   Evaluator'}
             </p>
           </div>
 
@@ -80,9 +80,9 @@ const AuthPage: React.FC<AuthProps> = ({ onAuthSuccess, onBack }) => {
                 label="Full Name" 
                 id="name" 
                 type="text" 
-                placeholder="John Doe" 
-                required // 1. Mandatory field
-                pattern="[a-zA-Z\s]+" // 2. Specific Format: Letters and spaces only
+                placeholder="Your Name" 
+                required
+                pattern="[a-zA-Z\s]+" 
                 title="Name should only contain letters and spaces"
               />
             )}
@@ -91,9 +91,8 @@ const AuthPage: React.FC<AuthProps> = ({ onAuthSuccess, onBack }) => {
               label="Email Address"
               id="email"
               type="email" 
-              placeholder="user@sih.gov.in"
-              required // 1. Mandatory field
-              // Browser automatically validates email format with type="email"
+              placeholder="user@nemo.dac.gov.in"
+              required
             />
             
             <Input
@@ -101,8 +100,8 @@ const AuthPage: React.FC<AuthProps> = ({ onAuthSuccess, onBack }) => {
               id="password"
               type="password"
               placeholder="••••••••"
-              required // 1. Mandatory field
-              minLength={8} // 2. Specific Format: Min 8 chars
+              required 
+              minLength={8}
               title="Password must be at least 8 characters long"
             />
 
@@ -120,7 +119,7 @@ const AuthPage: React.FC<AuthProps> = ({ onAuthSuccess, onBack }) => {
               {isLoginMode ? "Don't have an account?" : "Already have an account?"}
 
               <Button
-                type="button" // Prevents form submission
+                type="button" 
                 onClick={toggleMode}
                 variant="link"
                 className="px-0 text-green-700 font-semibold hover:underline"

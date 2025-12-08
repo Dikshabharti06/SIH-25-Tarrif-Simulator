@@ -33,10 +33,12 @@ function TabsList({
   );
 }
 
+// --- UPDATED COMPONENT ---
 function TabsTrigger({
   className,
+  indicatorClassName, // 1. Destructure it here (pulls it out of props)
   ...props
-}: React.ComponentProps<typeof TabsPrimitive.Trigger>) {
+}: React.ComponentProps<typeof TabsPrimitive.Trigger> & { indicatorClassName?: string }) { // 2. Add type definition
   return (
     <TabsPrimitive.Trigger
       data-slot="tabs-trigger"
@@ -48,7 +50,7 @@ function TabsTrigger({
         "disabled:opacity-50 disabled:pointer-events-none",
         className
       )}
-      {...props}
+      {...props} // 3. Now this is safe to spread
     />
   );
 }

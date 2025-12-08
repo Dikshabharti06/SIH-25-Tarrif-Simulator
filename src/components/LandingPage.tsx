@@ -4,39 +4,45 @@ import MinLogo from '/min-logo.png';
 import DashOne from '/dashboard1.png';
 import DashTwo from '/dashboard2.png';
 import DashThree from '/dashboard3.png';
+import GoiLogo from '/Government_of_India_logo.svg.png';
+import MakeInIndiaLogo from '/Make_In_India.png';
+import NameLogo from '/name.png';
+import GreenFooter from './footer/Footer';
 
 interface NavbarProps {
   onLoginClick: () => void;
 }
-
 const Navbar: React.FC<NavbarProps> = ({ onLoginClick }) => (
-  <nav className="flex items-center justify-between px-8 py-4 bg-white border-b border-gray-100">
+  <nav className="flex items-center justify-between px-10 bg-white shadow border-b-4 border-yellow-500">
+    
     <div className="flex items-center gap-3">
-  <div className="w-10 h-10 rounded-full bg-linear-to-br from-green-600 to-green-800 flex items-center justify-center shadow-md">
-    <img className="rounded-full hover:scale-110" src={MinLogo}/>
-  </div>
-
-  <div className="leading-tight">
-    <span className="text-sm font-bold text-gray-800 block uppercase">
-      Ministry of Agriculture and Farmers Welfare
-    </span>
-    <span className="text-sm font-medium text-green-700 tracking-wide uppercase">
-      NMEO-OP
-    </span>
-  </div>
-</div>
-
+      <div className="w-18 h-18 bg-white flex items-center justify-center">
+        <img className="hover:scale-110" src={GoiLogo}/>
+      </div>
+      <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm">
+        <img className="rounded-full hover:scale-110" src={MinLogo}/>
+      </div>
+      <div className="w-23 h-23 bg-white flex items-center justify-cente">
+        <img className="hover:scale-110" src={NameLogo}/>
+      </div>
+    </div>
     <div className="hidden md:flex items-center gap-6">
-      <a href="#features" className="text-gray-600 hover:text-green-700 font-medium text-sm">Features</a>
-
+      <div className="hidden md:flex items-center gap-6"> <a href="#features" className="text-gray-600 hover:text-green-700 font-medium text-sm">Features</a>
       <Button
-  size="sm"
-  className="rounded-full text-green-700 border border-green-700 hover:bg-green-700 hover:text-white transition"
-  onClick={onLoginClick}
->
-  Portal Login
-</Button>
-</div>
+        size="sm"
+        className="rounded-full text-green-700 border border-green-700 hover:bg-green-700 hover:text-white transition"
+        onClick={onLoginClick}
+      >
+        Portal Login
+      </Button>
+    </div>
+    <div>
+      <img 
+        src={MakeInIndiaLogo} 
+        className="h-8 hover:scale-110 transition"
+      />
+      </div>
+      </div>
   </nav>
 );
 
@@ -46,38 +52,62 @@ interface LandingProps {
 
 const LandingPage: React.FC<LandingProps> = ({ onLoginClick }) => {
   return (
+    <>
     <div className="min-h-screen bg-linear-to-br from-green-700 to-green-800 font-sans text-white">
       <Navbar onLoginClick={onLoginClick} />
+      {/* HERO + DASHBOARD BG SECTION */}
+<section className="relative w-full h-full flex flex-col border-b-2 border-b-yellow-500 rounded-xl">
 
-      {/* HERO SECTION */}
-      <main className="px-8 py-20 md:py-32 max-w-7xl mx-auto text-center">
-        <span className="inline-block py-1 px-3 rounded-full bg-white/20 text-white text-xs font-bold mb-4 uppercase tracking-wider">
-          Palm Oil Impact • AI Simulator
-        </span>
+  {/* Full Background Cover (Header → Hero → Preview) */}
+  <div
+    className="absolute inset-0 w-full h-full bg-cover bg-center rounded-xl opacity-60"
+    style={{ backgroundImage: "url('/bg-coverpalm.webp')" }}
+  />
 
-        <h1 className="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
-          Predict Policy Impact on <br className="hidden md:block" />
-          <span className="text-yellow-300">Palm Oil Ecosystem</span>
-        </h1>
+  {/* Gradient Overlay for Visibility */}
+  <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/50 to-black/30" />
 
-        <p className="text-xl text-gray-100 max-w-3xl mx-auto mb-10">
-          Boosting NMEO-OP with simulation tools that forecast the effects
-          of tariff changes on farmers, industries, consumers & sustainability.
-        </p>
+  {/* Foreground Content */}
+  <div className="relative z-10 flex-1 flex flex-col justify-center items-center text-center px-6 py-24">
 
-        <div className="flex flex-col sm:flex-row justify-center gap-4">
-          <Button 
-            size="lg"
-            className="bg-yellow-400 hover:bg-yellow-500 text-green-900 font-bold text-lg h-12 px-8"
-            onClick={onLoginClick}
-          >
-            Launch Simulator
-          </Button>
-        </div>
+    {/* Tag */}
+    <span className="py-1 px-4 rounded-full bg-green-600 text-white text-sm md:text-lg uppercase tracking-wider font-semibold shadow-lg">
+      AI Simulator
+    </span>
+
+    {/* Title */}
+    <h1 className="text-4xl md:text-6xl font-extrabold text-white mt-4 leading-tight drop-shadow">
+      Predict Policy Impact on <br />
+      <span className="text-yellow-300">Palm Oil Ecosystem</span>
+    </h1>
+
+    {/* Subtitle */}
+    <p className="text-lg md:text-xl text-white max-w-2xl mt-4 mb-8 drop-shadow">
+      Boosting NMEO-OP with simulation tools that forecast the effects
+      of tariff changes on farmers, industries, consumers & sustainability.
+    </p>
+
+    {/* CTA Button */}
+    <Button
+      size="lg"
+      className="bg-yellow-400 hover:bg-yellow-300 text-green-900 font-bold text-lg h-12 px-8 rounded-xl shadow-xl transition"
+      onClick={onLoginClick}
+    >
+      Launch Simulator
+    </Button>
+
+  </div>
+
+  {/* 👇 Put your Dashboard Preview component here — Same background continues */}
+  <div className="relative z-10 w-full pb-20">
+    {/* Dashboard Preview Section Here */}
+  </div>
+
+</section>
 
         {/* Dashboard Preview (Auto Slider) */}
-<div className="mt-20 max-w-5xl mx-auto">
-  <h3 className="text-2xl font-extrabold text-center text-white tracking-wide mb-6 transition-transform duration-300 hover:translate-y-1">
+<div className="mt-5 max-w-5xl mx-auto p-10">
+  <h3 className="text-3xl font-extrabold text-center text-white tracking-wide mb-6 transition-transform duration-300 hover:translate-y-1">
   Dashboard <span className="text-yellow-400">Preview</span>
 </h3>
   <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-green-200 bg-white">
@@ -102,45 +132,86 @@ const LandingPage: React.FC<LandingProps> = ({ onLoginClick }) => {
         <img src={DashThree}
           className="w-full h-full rounded-xl" alt="Dashboard Preview 3" />
       </div>
-
     </div>
 
     {/* Navigation Dots */}
-    <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
-      <button className="w-3 h-3 rounded-full bg-white/70 hover:bg-yellow-400"></button>
-      <button className="w-3 h-3 rounded-full bg-white/70 hover:bg-yellow-400"></button>
-      <button className="w-3 h-3 rounded-full bg-white/70 hover:bg-yellow-400"></button>
+    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+      <button className="w-3 h-3 rounded-full bg-gray-500 hover:bg-yellow-400"></button>
+      <button className="w-3 h-3 rounded-full bg-gray-500 hover:bg-yellow-400"></button>
+      <button className="w-3 h-3 rounded-full bg-gray-500 hover:bg-yellow-400"></button>
     </div>
-
   </div>
 </div>
+<section id="features" className="py-10 bg-linear-to-b from-gray-50 to-white text-gray-900 px-10 rounded-t-3xl">
+  <div className="max-w-7xl mx-auto">
+    
+    <h2 className="text-4xl font-extrabold text-center text-green-800 mb-20 tracking-wide">
+      Key Modules
+    </h2>
+    {/* Feature Cards */}
+    <div className="grid md:grid-cols-4 gap-10">
 
-      </main>
+      <FeatureCard
+        title="Yield & Price Forecasting"
+        desc="LSTM + Prophet models predicting market volatility and future palm oil prices."
+        icon={
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M13 10V3L4 14h7v7l9-11h-7z"
+          />
+        }
+        className="bg-white shadow-lg border-l-4 border-green-600 hover:shadow-2xl hover:-translate-y-1 transition"
+      />
 
-      {/* FEATURES */}
-      <section id="features" className="py-20 bg-white text-gray-900 px-8 rounded-t-3xl">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-16">Key Modules</h2>
-          <div className="grid md:grid-cols-3 gap-12">
-            <FeatureCard 
-              title="Yield & Price Forecasting"
-              desc="LSTM + Prophet models predicting palm oil futures & market volatility."
-              icon={<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />}
-            />
-            <FeatureCard 
-              title="Trade-off Dashboard"
-              desc="Analyze policy impact across farmers, consumers & sustainability metrics."
-              icon={<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />}
-            />
-            <FeatureCard 
-              title="Live Market Feed"
-              desc="Real-time WebSocket updates for instant price-change simulations."
-              icon={<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />}
-            />
-          </div>
-        </div>
-      </section>
+      <FeatureCard
+        title="Trade-off Dashboard"
+        desc="Analyze policy impact across farmers, consumers & sustainability indicators."
+        icon={
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+          />
+        }
+        className="bg-white shadow-lg border-l-4 border-emerald-600 hover:shadow-2xl hover:-translate-y-1 transition"
+      />
+
+      <FeatureCard
+        title="Live Market Feed"
+        desc="Instant price-change simulation powered by real-time WebSocket streams."
+        icon={
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
+        }
+        className="bg-white shadow-lg border-l-4 border-teal-600 hover:shadow-2xl hover:-translate-y-1 transition"
+      />
+      <FeatureCard
+  title="Foreign Exchange Impact"
+  desc="Analyze how currency fluctuations influence import bills and domestic market stability."
+  icon={
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M12 2a10 10 0 100 20 10 10 0 000-20zm-8 10h16m-8-9c2.5 2 4 5 4 9s-1.5 7-4 9m0-18c-2.5 2-4 5-4 9s1.5 7 4 9"
+    />
+  }
+  className="bg-white shadow-lg border-l-4 border-teal-600 hover:shadow-2xl hover:-translate-y-1 transition"
+/>
     </div>
+  </div>
+</section>
+
+    </div>
+    <GreenFooter/>
+    </>
   );
 };
 

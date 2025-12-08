@@ -1,15 +1,18 @@
 import React from "react";
 import { LogOut, User } from "lucide-react";
+import { Button } from '../components/ui/button';
 import MinLogo from '/min-logo.png';
+import GoiLogo from '/Government_of_India_logo.svg.png';
+import MakeInIndiaLogo from '/Make_In_India.png';
+import NameLogo from '/name.png';
 
 interface HeaderProps {
   onLogout: () => void;
-  userName?: string; // Optional: Pass dynamic name if needed
+  userName?: string; 
 }
 
 const Header: React.FC<HeaderProps> = ({ onLogout, userName = "Admin User" }) => {
   
-  // Helper to get initials (e.g., "Admin User" -> "AU")
   const getInitials = (name: string) => {
     return name
       .split(' ')
@@ -21,26 +24,21 @@ const Header: React.FC<HeaderProps> = ({ onLogout, userName = "Admin User" }) =>
 
   return (
     <header className="w-full bg-white shadow-sm border-b-4 border-yellow-500 sticky top-0 z-50">
-      <div className="max-w-[1600px] mx-auto px-6 py-3 flex justify-between items-center">
-        
-        {/* --- LEFT SIDE: LOGOS --- */}
-        <div className="flex items-center gap-4">
-          {/* Project Logo */}
-          <div className="w-12 h-12 rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-lg bg-white border border-gray-100">
-            <img 
-              src={MinLogo}
-              alt="Logo" 
-              className="w-full h-full rounded-full object-cover"
-            />
-          </div>
-
-          {/* Title Badge */}
-          <div className="flex flex-col">
-            <h1 className="text-sm font-bold text-white px-4 py-1.5 rounded-full bg-linear-to-r from-green-600 to-green-700 shadow-sm hover:scale-105 transition-transform uppercase tracking-wider cursor-default">
-              NMEO-OP
-            </h1>
-          </div>
-        </div>
+      <div className="max-w-[1600px] mx-auto px-6 py-1 flex justify-between items-center">
+        <nav className="flex items-center justify-between px-10 bg-white">
+    
+    <div className="flex items-center gap-3">
+      <div className="w-18 h-18 bg-white flex items-center justify-center">
+        <img className="hover:scale-110" src={GoiLogo}/>
+      </div>
+      <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm">
+        <img className="rounded-full hover:scale-110" src={MinLogo}/>
+      </div>
+      <div className="w-23 h-23 bg-white flex items-center justify-cente">
+        <img className="hover:scale-110" src={NameLogo}/>
+      </div>
+      </div>
+  </nav>
 
         {/* --- RIGHT SIDE: USER PROFILE & LOGOUT --- */}
         <div className="flex items-center gap-6">
@@ -65,7 +63,6 @@ const Header: React.FC<HeaderProps> = ({ onLogout, userName = "Admin User" }) =>
             <LogOut className="w-5 h-5 group-hover:-translate-x-0.5 transition-transform" />
             <span className="hidden md:inline">Log Out</span>
           </button>
-
         </div>
       </div>
     </header>

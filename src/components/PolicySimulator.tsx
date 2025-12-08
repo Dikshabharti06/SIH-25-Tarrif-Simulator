@@ -9,7 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { ExecutiveMemo } from './ExecutiveMemo';
 import { generateMemo } from '../utils/memoGenerator';
 import { MarketActorMap } from './MarketActorMap';
-import { StateAffordabilityHeatmap } from './StateAffordabilityHeatmap';
+// import { StateAffordabilityHeatmap } from './StateAffordabilityHeatmap'; // Replaced by StateAnalysis
 import { TradeOffScorecard } from './TradeOffScorecard';
 import { SensitivityAnalysis } from './SensitivityAnalysis';
 import { NMEOPTargetAnalysis } from './NMEOPTargetAnalysis';
@@ -20,12 +20,14 @@ import { FeatureGuide } from './FeatureGuide';
 import { QuickPresets } from './QuickPresets';
 import { DashboardOverview } from './DashboardOverview';
 import { WelcomeDialog } from './WelcomeDialog';
+import { StateAnalysis } from './StateAnalysis'; // Ensure this is imported
 import { calculateAgentBehavior } from '../data/agentModels';
 import Header from './Header';
+import GreenFooter from './footer/Footer';
 
 interface PolicySimulatorProps {
   onBack: () => void;
-  onLogout: () => void; // <--- ADDED LOGOUT PROP
+  onLogout: () => void;
 }
 
 export function PolicySimulator({ onBack, onLogout }: PolicySimulatorProps) {
@@ -158,10 +160,10 @@ export function PolicySimulator({ onBack, onLogout }: PolicySimulatorProps) {
       setVolatilityInput(volatilityIndex.toString());
     }
   };
+  
 
   return (
     <>
-      {/* Pass the logout function to the Header */}
       <Header onLogout={onLogout} userName="Admin User" />
       
       <div className="container mx-auto px-4 py-8 max-w-[1600px]">
@@ -192,7 +194,6 @@ export function PolicySimulator({ onBack, onLogout }: PolicySimulatorProps) {
         <div className="grid lg:grid-cols-3 gap-6">
           {/* Interactive Controls Panel */}
           <div className="lg:col-span-1 space-y-4">
-            {/* Quick Presets */}
             <QuickPresets onLoadPreset={handleLoadPreset} />
 
             <Card className="p-6">
@@ -367,21 +368,18 @@ export function PolicySimulator({ onBack, onLogout }: PolicySimulatorProps) {
               </Button>
             </Card>
 
-            {/* Real-time Impact Graph */}
             <RealTimeImpactGraph 
               tariff={tariff}
               globalPrice={globalPrice}
               yieldGap={yieldGap}
             />
 
-            {/* Trade-Off Scorecard */}
             <TradeOffScorecard 
               consumerWelfare={scores.consumer}
               farmerUpliftment={scores.farmer}
               fiscalStability={scores.fiscal}
             />
 
-            {/* Sensitivity Analysis Button */}
             <SensitivityAnalysis 
               tariff={tariff}
               globalPrice={globalPrice}
@@ -391,7 +389,6 @@ export function PolicySimulator({ onBack, onLogout }: PolicySimulatorProps) {
 
           {/* Main Content Panel */}
           <div className="lg:col-span-2">
-            {/* Dashboard Overview */}
             <DashboardOverview 
               tariff={tariff}
               globalPrice={globalPrice}
@@ -435,9 +432,8 @@ export function PolicySimulator({ onBack, onLogout }: PolicySimulatorProps) {
               </TabsContent>
 
               <TabsContent value="heatmap" className="mt-6">
-                <StateAffordabilityHeatmap 
-                  priceIncrease={(tariff * 0.8) + ((globalPrice - 1000) / 20)}
-                />
+                {/* NEW STATE ANALYSIS COMPONENT HERE */}
+                <StateAnalysis />
               </TabsContent>
 
               <TabsContent value="historical" className="mt-6">
@@ -452,7 +448,6 @@ export function PolicySimulator({ onBack, onLogout }: PolicySimulatorProps) {
               </TabsContent>
             </Tabs>
 
-            {/* Scenario Manager */}
             <div className="mt-6">
               <ScenarioManager 
                 currentScenario={{ tariff, globalPrice, yieldGap, volatilityIndex }}
@@ -462,6 +457,7 @@ export function PolicySimulator({ onBack, onLogout }: PolicySimulatorProps) {
           </div>
         </div>
       </div>
+      <GreenFooter/>
     </>
   );
 }
