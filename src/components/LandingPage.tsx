@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from '../components/ui/button';
 import MinLogo from '/min-logo.png';
 import DashOne from '/dashboard1.png';
-import DashTwo from './dashboard2.png';
+import DashTwo from '/dashboard2.png';
 import DashThree from '/dashboard3.png';
 
 interface NavbarProps {
