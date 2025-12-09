@@ -162,7 +162,7 @@ const LandingPage: React.FC<LandingProps> = ({ onLoginClick }) => {
             d="M13 10V3L4 14h7v7l9-11h-7z"
           />
         }
-        className="bg-white shadow-lg border-l-4 border-green-600 hover:shadow-2xl hover:-translate-y-1 transition"
+        className="bg-white shadow-lg border-l-4 border-green-600 hover:shadow-3xl hover:-translate-y-1 transition"
       />
 
       <FeatureCard

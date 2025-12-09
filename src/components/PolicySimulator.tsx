@@ -174,7 +174,7 @@ export function PolicySimulator({ onBack, onLogout }: PolicySimulatorProps) {
           <Button 
             variant="ghost" 
             onClick={onBack}
-            className="mb-4 rounded-lg text-gray-600 outline-1 hover:text-gray-800 hover:bg-green-100 transition-all duration-200 font-medium text-sm"
+            className="mb-4 rounded-lg text-gray-700 outline-1 bg-gray-200 hover:text-gray-800 hover:bg-green-100 transition-all duration-200 font-medium text-sm"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Home
@@ -182,9 +182,9 @@ export function PolicySimulator({ onBack, onLogout }: PolicySimulatorProps) {
           
           <div className="flex items-start justify-between">
             <div>
-              <h1>CPO Policy Simulator</h1>
-              <p className="text-gray-600">
-                Advanced Multi-Dimensional Predictive Modeling for India's Ministry of Commerce
+              <h1 className='font-bold text-3xl'>CPO Policy Simulator</h1>
+              <p className="text-gray-600 text-lg">
+                Advanced Multi-Dimensional Predictive Modelling for the optimization of tarrifs.
               </p>
             </div>
             <FeatureGuide />
@@ -198,7 +198,7 @@ export function PolicySimulator({ onBack, onLogout }: PolicySimulatorProps) {
 
             <Card className="p-6">
               <div className="flex items-center justify-between mb-6">
-                <h2>Interactive Parameters</h2>
+                <p className='text-lg font-bold'>Interactive Parameters</p>
                 <p className="text-xs text-gray-500">Drag sliders or type values</p>
               </div>
               
@@ -361,7 +361,7 @@ export function PolicySimulator({ onBack, onLogout }: PolicySimulatorProps) {
                   </>
                 ) : (
                   <>
-                    <Sparkles className="w-4 h-4 mr-2" />
+                    <Sparkles className="w-4 h-4 mr-2 bg-black text-white" />
                     Generate Executive Memo
                   </>
                 )}

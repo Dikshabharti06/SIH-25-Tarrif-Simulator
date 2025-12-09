@@ -9,8 +9,9 @@ import {
   FileText,
   PlayCircle,
   History,
-  Database,
+  Globe,
   ChevronRight,
+  Bot,
 } from "lucide-react";
 import Header from "./Header";
 import bgCover from "/bg-cover.jpg";
@@ -18,61 +19,53 @@ import GreenFooter from "./footer/Footer";
 
 interface LandingPageProps {
   onStart: () => void;
+  onLogout: () => void;
 }
-
-export function LoadingPage({ onStart }: LandingPageProps) {
+export function LoadingPage({ onStart, onLogout }: LandingPageProps) {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   return (
     <>
-      {/* Header stays same */}
-      <Header onLogout={() => {}} />
-
+    <Header onLogout={onLogout} />
       <div className="flex">
         <aside className="w-72 bg-white border-r border-gray-200 flex flex-col shadow-sm z-10">
           <nav className="flex-1 p-4 space-y-2 mt-3">
             <SidebarItem
               icon={<PlayCircle size={22} />}
               label="Policy Simulator"
-              description="Run ABM & Tariff Scenarios"
+              description="Run ABM & Tariff Scenarios."
               onClick={() => setIsDialogOpen(true)}
               active
             />
             <SidebarItem
               icon={<History size={22} />}
               label="Simulation History"
-              description="Past runs & results"
+              description="Past runs & results."
               onClick={() => alert("History coming soon")}
             />
             <SidebarItem
-              icon={<Database size={22} />}
-              label="Data Sources"
-              description="Market APIs & Import logs"
-              onClick={() => alert("Data sources coming soon")}
+              icon={<Globe size={22} />}
+              label="Global Imports"
+              description="Reliance on foreign edible oil markets."
+              onClick={() => alert("yet to put")}
+            />
+            <SidebarItem
+              icon={<Bot size={22} />}
+              label="AI Chatbot"
+              description="Your AI Policy Advisor- always ready."
+              onClick={() => alert("yet to put")}
             />
           </nav>
         </aside>
         <div className="flex-1">
-          <div className="container mx-auto px-4 py-2 max-w-6xl">
-            <div className="container mx-auto px-4 py-2 max-w-6xl">
-              {/* Header */}
-              <div className="text-center mb-12">
-                <h1 className="p-4 text-green-900 text-3xl">
-                  AI Policy Forecast
-                </h1>
-                <p className="p-2 text-gray-600 max-w-2xl mx-auto">
-                  Advanced Agent-Based Modeling & Interactive Policy Simulation
-                  for India's NMEO-OP Self-Reliance Strategy
-                </p>
-              </div>
-
+          <div className="container mx-auto px-6 py-2 max-w-7xl bg-gray-100">
+                
               {/* Main CTA Card */}
-              <Card className="p-8 mb-8 bg-linear-to-r from-green-700 to-green-800 text-white border-0">
+              <Card className="p-8 mt-4 mb-8 bg-linear-to-r from-green-700 to-green-800 text-white shadow-xl">
                 <div className="max-w-3xl mx-auto text-center">
-                  <h2 className="mb-4 text-white">
-                    CPO Import Policy Simulator
-                  </h2>
-                  <p className="mb-6 text-white">
+                    <p className="p-2 text-white text-3xl border-b border-white font-bold">
+                  AI Policy Forecast</p>
+                  <p className="mb-4 p-2 text-white text-md">
                     Generate professional executive memos analyzing the impact
                     of tariff policies on consumer affordability, farmer
                     profitability, and import dependency using advanced
@@ -81,44 +74,41 @@ export function LoadingPage({ onStart }: LandingPageProps) {
                   <Button
                     onClick={onStart}
                     size="lg"
-                    className="bg-white text-green-800 hover:bg-gray-100 cursor-pointer"
+                    className="bg-white text-md text-green-900 hover:bg-gray-300 cursor-pointer shadow-2xl"
                   >
                     Start Simulation
                   </Button>
                 </div>
               </Card>
-
               {/* Features Grid */}
               <div className="grid md:grid-cols-3 gap-6 mb-8 p-2">
-                <Card className="p-6">
-                  <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
+                <Card className="p-4 bg-white border-0 shadow-xl cursor-pointer">
+                  <div className="w-12 h-12 bg-indigo-100 rounded-lg flex flex-row items-center justify-center">
                     <TrendingUp className="w-6 h-6 text-indigo-600" />
                   </div>
-                  <h3 className="mb-2">Real-Time Interactive Sliders</h3>
-                  <p className="text-gray-600 text-sm">
+                  <h3 className="text-lg text-gray-700 font-bold">Real-Time Interactive Sliders</h3>
+                  <p className="text-gray-800 text-md">
                     Drag sliders to instantly visualize policy trade-offs. Watch
                     consumer prices and farmer income curves update in
                     real-time.
                   </p>
                 </Card>
-
-                <Card className="p-6">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                <Card className="p-4 bg-white border-0 shadow-xl cursor-pointer">
+                  <div className="w-12 h-12 bg-indigo-100 rounded-lg flex flex-row items-center justify-center">
                     <BarChart3 className="w-6 h-6 text-blue-600" />
                   </div>
-                  <h3 className="mb-2">Agent-Based Modeling</h3>
-                  <p className="text-gray-600 text-sm">
+                  <h3 className="text-lg text-gray-700 font-bold">Agent-Based Modeling</h3>
+                  <p className="text-gray-800 text-md">
                     Simulate behavior shifts of farmers, traders, investors,
                     consumers, and importers using advanced ABM visualization.
                   </p>
                 </Card>
-
-                <Card className="p-6">
-                  <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                <Card className="p-4 bg-white border-0 shadow-xl cursor-pointer">
+                  <div className="w-12 h-12 bg-indigo-100 rounded-lg flex flex-row items-center justify-center">
                     <FileText className="w-6 h-6 text-purple-600" />
                   </div>
-                  <h3 className="mb-2">State-Wise Impact Heatmap</h3>
-                  <p className="text-gray-600 text-sm">
+                  <h3 className="text-lg text-gray-700 font-bold">State-Wise Impact Heatmap</h3>
+                  <p className="text-gray-800 text-md">
                     Analyze consumer affordability across all Indian states
                     based on income levels and consumption patterns.
                   </p>
@@ -127,8 +117,8 @@ export function LoadingPage({ onStart }: LandingPageProps) {
 
               {/* Additional Features */}
               <div className="grid md:grid-cols-4 gap-4 mb-8">
-                <Card className="p-6 bg-linear-to-br from-green-50 to-emerald-50 border-green-200">
-                  <p className="text-sm font-medium text-green-900 mb-1">
+                <Card className="p-6 bg-linear-to-br from-green-50 to-emerald-50 border-green-200 hover:shadow-2xl hover:translate-y-1">
+                  <p className="text-sm font-bold text-green-900 mb-1">
                     NMEO-OP Target Calculator
                   </p>
                   <p className="text-xs text-green-700">
@@ -136,8 +126,8 @@ export function LoadingPage({ onStart }: LandingPageProps) {
                     self-reliance goals
                   </p>
                 </Card>
-                <Card className="p-6 bg-linear-to-br from-orange-50 to-amber-50 border-orange-200">
-                  <p className="text-sm font-medium text-orange-900 mb-1">
+                <Card className="p-6 bg-linear-to-br from-orange-50 to-amber-50 border-orange-200 hover:shadow-2xl hover:translate-y-1">
+                  <p className="text-sm font-bold text-orange-900 mb-1">
                     Historical Comparison
                   </p>
                   <p className="text-xs text-orange-700">
@@ -145,8 +135,8 @@ export function LoadingPage({ onStart }: LandingPageProps) {
                     mistakes
                   </p>
                 </Card>
-                <Card className="p-6 bg-linear-to-br from-purple-50 to-violet-50 border-purple-200">
-                  <p className="text-sm font-medium text-purple-900 mb-1">
+                <Card className="p-6 bg-linear-to-br from-purple-50 to-violet-50 border-purple-200 hover:shadow-2xl hover:translate-y-1">
+                  <p className="text-sm font-bold text-purple-900 mb-1">
                     Sensitivity Analysis
                   </p>
                   <p className="text-xs text-purple-700">
@@ -154,8 +144,8 @@ export function LoadingPage({ onStart }: LandingPageProps) {
                     interactions
                   </p>
                 </Card>
-                <Card className="p-6 bg-linear-to-br from-blue-50 to-cyan-50 border-blue-200">
-                  <p className="text-sm font-medium text-blue-900 mb-1">
+                <Card className="p-6 bg-linear-to-br from-blue-50 to-cyan-50 border-blue-200 hover:shadow-2xl hover:translate-y-1">
+                  <p className="text-sm font-bold text-blue-900 mb-1">
                     Scenario Save & Share
                   </p>
                   <p className="text-xs text-blue-700">
@@ -170,43 +160,52 @@ export function LoadingPage({ onStart }: LandingPageProps) {
                 <img src={bgCover} className="w-full h-full rounded-xl" />
               </div>
               {/* Info Section */}
-              <div className="p-4 text-center text-sm text-gray-600">
+              <div className="p-4 text-center text-sm text-gray-800">
                 <p>Designed for India's Ministry of Commerce policy analysis</p>
               </div>
             </div>
           </div>
         </div>
-      </div>
       {isDialogOpen && (
-  <div className="fixed inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm z-50">
-    <div className="bg-white p-8 rounded-2xl max-w-md w-full shadow-xl">
-      <PlayCircle className="w-12 h-12 text-green-600 mb-4" />
-      <h3 className="text-2xl font-bold text-gray-800 mb-2">
+  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+    <div className="bg-white p-8 rounded-xl max-w-md w-full 
+        border-2 border-yellow-500 shadow-lg
+        transition-all animate-in fade-in duration-200">
+
+      <h3 className="text-2xl font-bold text-green-800 text-center mb-4 border-b border-green-700">
         Launch Simulator?
       </h3>
 
-      {/* Action Buttons */}
-      <div className="flex flex-col gap-3 mt-6">
+      <ul className="text-md text-gray-800 space-y-1 mb-6 pl-4 list-disc">
+        <li>Real-time Agent-Based Market Simulation (ABM).</li>
+        <li>Tariff-dependent demand & farmer income projections.</li>
+        <li>Import bill, trade deficit & forex exposure forecasting.</li>
+      </ul>
+
+      <div className="flex flex-col gap-3">
         <Button
-          className="w-full h-12 bg-green-600 hover:bg-green-700 text-white font-bold"
           onClick={() => {
             setIsDialogOpen(false);
             onStart();
           }}
+          className="w-full bg-green-700 hover:bg-green-800 
+          text-white font-semibold h-11 rounded-lg text-md"
         >
           Initialize System
         </Button>
 
         <button
           onClick={() => setIsDialogOpen(false)}
-          className="w-full py-3 text-gray-600 hover:text-black font-medium transition-colors"
+          className="p-2 w-full text-gray-700 hover:text-gray-800 hover:bg-gray-300 text-md font-medium rounded-lg"
         >
           Cancel
         </button>
       </div>
+
     </div>
   </div>
 )}
+
 <GreenFooter/>
     </>
   );

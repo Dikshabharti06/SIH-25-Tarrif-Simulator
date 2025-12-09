@@ -69,7 +69,7 @@ export function WelcomeDialog() {
             <Button onClick={handleClose} className="flex-1 bg-green-700 hover:bg-green-800">
               Get Started
             </Button>
-            <Button onClick={handleClose} variant="outline" className="flex-1">
+            <Button onClick={handleClose} variant="outline" className="flex-1 hover:bg-gray-400">
               Skip Tutorial
             </Button>
           </div>

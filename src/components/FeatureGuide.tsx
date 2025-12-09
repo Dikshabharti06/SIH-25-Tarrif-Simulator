@@ -7,9 +7,11 @@ export function FeatureGuide() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline" size="sm">
-          <HelpCircle className="w-4 h-4 mr-2" />
-          Feature Guide
+        <Button variant="ghost" size="lg">
+          <div className='p-2 mt-1.5 flex flex-row text-lg text-gray-700 border border-green-400 bg-green-100 hover:text-green-800 rounded-lg shadow-xl cursor-pointer'>
+          <HelpCircle className="w-10 h-10 mt-1.5 mr-1" />
+           <span> Features Guide</span>
+          </div>
         </Button>
       </DialogTrigger>
       <DialogContent className="max-w-4xl max-h-[85vh] overflow-y-auto bg-white">

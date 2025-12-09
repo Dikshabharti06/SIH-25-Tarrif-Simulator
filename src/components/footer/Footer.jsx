@@ -9,7 +9,6 @@ import {
   Phone,
   Mail,
   MapPin,
-  Facebook,
   Twitter,
   Linkedin,
   Youtube,
@@ -45,26 +44,28 @@ const GreenFooter= () => {
             <h4 className="text-lg font-bold text-white tracking-wide mb-4 border-b border-green-700 pb-1">
               Contact Support
             </h4>
-            <ul className="text-sm space-y-3">
+            <ul className="text-sm space-y-4">
               <li className="flex items-center gap-2">
                 <MapPin className="text-green-400" size={18} />
-                Department of Commerce, New Delhi
+                Ministry of Agriculture & Farmers Welfare, GoI
               </li>
               <li className="flex items-center gap-2">
-                <Mail className="text-green-400" size={18} />
-                <a href="mailto:support@nmeo-op.gov.in" className="hover:text-green-300">
-                  support@nmeo-op.gov.in
+                <Globe className="text-green-400" size={18} />
+                <a href="https://nmeo.dac.gov.in/Default.aspx" className="hover:text-green-300">
+                  nmeo.dac.gov.in
                 </a>
               </li>
               <li className="flex items-center gap-2">
-                <Phone className="text-green-400" size={18} />
-                +91 011-2306-1000
+                <Mail className="text-green-400" size={18} />
+                <a href="https://nmeo.dac.gov.in/Default.aspx" className="hover:text-green-300">
+                  support@nmeo.dac.gov.in
+                </a>
               </li>
             </ul>
 
             {/* Socials */}
             <div className="flex gap-3 mt-5">
-              {[Facebook, Twitter, Linkedin, Youtube].map((Icon, i) => (
+              {[ Twitter, Linkedin, Youtube].map((Icon, i) => (
                 <div
                   key={i}
                   className="w-10 h-10 bg-green-700 hover:bg-green-600 rounded-full flex items-center justify-center cursor-pointer transition"
@@ -80,18 +81,18 @@ const GreenFooter= () => {
             <h4 className="text-lg font-bold text-white tracking-wide mb-4 border-b border-green-700 pb-1">
               Government Links
             </h4>
-            <ul className="text-sm space-y-3">
+            <ul className="text-sm space-y-4">
               <li className="flex gap-2 items-center hover:text-green-300 cursor-pointer">
                 <Landmark size={18} className="text-green-400" /> Ministry of Commerce & Industry
               </li>
               <li className="flex gap-2 items-center hover:text-green-300 cursor-pointer">
-                <Building2 size={18} className="text-green-400" /> Ministry of Agriculture & Farmers Welfare
+                <Building2 size={18} className="text-green-400" />
+                <a href="https://nmeo.dac.gov.in/Default.aspx" className="hover:text-green-300">
+                  Ministry of Agriculture & Farmers Welfare
+                </a>
               </li>
               <li className="flex gap-2 items-center hover:text-green-300 cursor-pointer">
                 <Leaf size={18} className="text-green-400" /> NMEO-OP Mission Portal
-              </li>
-              <li className="flex gap-2 items-center hover:text-green-300 cursor-pointer">
-                <Globe size={18} className="text-green-400" /> Trade & Import Dashboard
               </li>
             </ul>
           </div>
@@ -99,13 +100,24 @@ const GreenFooter= () => {
           {/* RESOURCE LINKS */}
           <div>
             <h4 className="text-lg font-bold text-white tracking-wide mb-4 border-b border-green-700 pb-1">
-              Useful Resources
+              Contact Us
             </h4>
-            <ul className="text-sm space-y-3">
-              <li className="hover:text-green-300 cursor-pointer">About This Project</li>
-              <li className="hover:text-green-300 cursor-pointer">Data Sources & Methodology</li>
-              <li className="hover:text-green-300 cursor-pointer">FAQs & Help Center</li>
-              <li className="hover:text-green-300 cursor-pointer">Privacy & Data Policy</li>
+            <ul className="text-sm space-y-4">
+              <li className="flex gap-2 items-center hover:text-green-300 cursor-pointer">
+                <Leaf size={18} className="text-green-400" /> About This Project
+              </li>
+              <li className="flex gap-2 items-center hover:text-green-300 cursor-pointer">
+                <Globe className="text-green-400" size={18} />
+                <a href="https://nmeo.dac.gov.in/Default.aspx" className="hover:text-green-300">
+                  Team connexa
+                </a>
+                </li>
+              <li className="flex gap-2 items-center hover:text-green-300 cursor-pointer">
+                <Mail className="text-green-400" size={18} />
+                <a href="https://nmeo.dac.gov.in/Default.aspx" className="hover:text-green-300">
+                  support@team.connexa.in
+                </a>
+              </li>
             </ul>
           </div>
 

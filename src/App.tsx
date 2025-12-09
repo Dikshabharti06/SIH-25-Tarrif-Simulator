@@ -58,8 +58,11 @@ export default function App() {
 
       {/* STEP 3: LOADING / SPLASH SCREEN */}
       {currentStep === 'LOADING' && (
-        <LoadingPage onStart={handleLoadingComplete} />
-      )}
+        <LoadingPage 
+    onStart={handleLoadingComplete} 
+    onLogout={handleLogout}
+  />
+)}
 
       {/* STEP 4: MAIN DASHBOARD */}
       {currentStep === 'SIMULATOR' && (
