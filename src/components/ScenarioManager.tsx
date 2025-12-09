@@ -93,7 +93,7 @@ export function ScenarioManager({ currentScenario, onLoadScenario }: ScenarioMan
               Save Current
             </Button>
           </DialogTrigger>
-          <DialogContent>
+          <DialogContent className='bg-white text-black'>
             <DialogHeader>
               <DialogTitle>Save Scenario</DialogTitle>
               <DialogDescription>
@@ -108,7 +108,7 @@ export function ScenarioManager({ currentScenario, onLoadScenario }: ScenarioMan
                   placeholder="e.g., Option 1: Moderate Hike"
                   value={scenarioName}
                   onChange={(e) => setScenarioName(e.target.value)}
-                  className="mt-2"
+                  className="mt-2 bg-white"
                 />
               </div>
               <div className="p-3 bg-gray-50 rounded-lg space-y-1 text-sm">

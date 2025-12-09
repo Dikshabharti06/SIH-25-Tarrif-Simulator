@@ -57,11 +57,11 @@ export function QuickPresets({ onLoadPreset }: QuickPresetsProps) {
   ];
 
   return (
-    <Card className="p-6 border-0">
+    <Card className="p-6 border-2 border-gray-300">
       <div className="flex items-center gap-1 mb-2">
         <Zap className="w-5 h-5 text-yellow-600" />
-        <p className=''>Quick Scenario Presets</p>
-      <p className="text-md text-gray-600 mb-2">
+        <p className='font-bold text-xl'>Quick Scenario Presets</p>
+      <p className="text-sm text-gray-600 mb-2">
         Load pre-configured scenarios to explore different policy approaches
       </p>
       </div>
@@ -76,7 +76,7 @@ export function QuickPresets({ onLoadPreset }: QuickPresetsProps) {
               yieldGap: preset.yieldGap,
               volatilityIndex: preset.volatilityIndex
             })}
-            className="text-left p-3 rounded-lg hover:border-indigo-400 transition-all hover:shadow-xl group"
+            className="text-left p-3 rounded-lg shadow-xl border-2 border-gray-400 hover:border-indigo-400 transition-all group"
           >
             <div className={`w-full h-1 rounded-full bg-linear-to-r ${preset.color} mb-2`} />
             <p className="font-medium text-sm mb-1 group-hover:text-indigo-600">

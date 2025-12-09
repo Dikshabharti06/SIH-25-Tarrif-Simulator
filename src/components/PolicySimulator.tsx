@@ -10,7 +10,6 @@ import { ExecutiveMemo } from './ExecutiveMemo';
 import { generateMemo } from '../utils/memoGenerator';
 import { MarketActorMap } from './MarketActorMap';
 // import { StateAffordabilityHeatmap } from './StateAffordabilityHeatmap'; // Replaced by StateAnalysis
-import { TradeOffScorecard } from './TradeOffScorecard';
 import { SensitivityAnalysis } from './SensitivityAnalysis';
 import { NMEOPTargetAnalysis } from './NMEOPTargetAnalysis';
 import { HistoricalComparison } from './HistoricalComparison';
@@ -373,13 +372,6 @@ export function PolicySimulator({ onBack, onLogout }: PolicySimulatorProps) {
               globalPrice={globalPrice}
               yieldGap={yieldGap}
             />
-
-            <TradeOffScorecard 
-              consumerWelfare={scores.consumer}
-              farmerUpliftment={scores.farmer}
-              fiscalStability={scores.fiscal}
-            />
-
             <SensitivityAnalysis 
               tariff={tariff}
               globalPrice={globalPrice}
@@ -432,7 +424,6 @@ export function PolicySimulator({ onBack, onLogout }: PolicySimulatorProps) {
               </TabsContent>
 
               <TabsContent value="heatmap" className="mt-6">
-                {/* NEW STATE ANALYSIS COMPONENT HERE */}
                 <StateAnalysis />
               </TabsContent>
 
@@ -447,13 +438,6 @@ export function PolicySimulator({ onBack, onLogout }: PolicySimulatorProps) {
                 <NMEOPTargetAnalysis currentYieldGap={yieldGap} />
               </TabsContent>
             </Tabs>
-
-            <div className="mt-6">
-              <ScenarioManager 
-                currentScenario={{ tariff, globalPrice, yieldGap, volatilityIndex }}
-                onLoadScenario={handleLoadScenario}
-              />
-            </div>
           </div>
         </div>
       </div>
