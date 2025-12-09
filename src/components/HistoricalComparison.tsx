@@ -10,7 +10,7 @@ import {
   LinearScale,
   Tooltip,
   Legend,
-  Filler, // Added for area fill
+  Filler,
 } from "chart.js";
 
 // Register chart components
@@ -43,20 +43,27 @@ const HistoricalAnalysis: React.FC<HistoricalAnalysisProps> = ({
     // Tariff Array (Continuous)
     const tariffs: number[] = [];
 
-    // --- 1. GENERATE HISTORY (Jan '23 to Dec '24) ---
+    // --- 1. GENERATE HISTORY (Jan '24 to Dec '25) ---
+    // Changed start year to 2024 as requested
     for (let i = 0; i < 24; i++) {
-      const year = 2023 + Math.floor(i / 12);
+      const year = 2024 + Math.floor(i / 12); 
       const monthIndex = i % 12;
       const label = `${months[monthIndex]} '${year.toString().slice(-2)}`;
       labels.push(label);
 
       // Simulation of Real-world events
       let tariff = 5.5; 
-      if (year === 2024 && monthIndex >= 8) tariff = 27.5; // Sep '24 Hike simulation
       
+      // Real-World Event: Sep '24 Hike (Import duty jumped to ~27.5%)
+      if (year === 2024 && monthIndex >= 8) tariff = 27.5;
+      
+      // 2025: Assume tariff remained elevated (or simulates current baseline)
+      if (year === 2025) tariff = 27.5;
+
       // Seasonality: Prices dip in May-Jun (Heat), Peak in Oct-Dec
       const seasonalFactor = (monthIndex >= 4 && monthIndex <= 6) ? -15 : (monthIndex >= 9) ? 10 : 0;
       
+      // Base Price Fluctuation
       const basePrice = 1000 + Math.sin(i * 0.4) * 80 + seasonalFactor;
       
       // Calculations
@@ -74,18 +81,18 @@ const HistoricalAnalysis: React.FC<HistoricalAnalysisProps> = ({
       tariffs.push(tariff);
     }
 
-    // --- 2. GENERATE PROJECTION (Jan '25 - User Input) ---
+    // --- 2. GENERATE PROJECTION (Jan '26 - User Input) ---
+    // Updated projection target to Jan '26
     const lastHistDomestic = histDomestic[23] as number;
     const lastHistFarmer = histFarmer[23] as number;
 
-    // Add Label for Jan '25
-    labels.push("Jan '25 (Proj)");
+    labels.push("Jan '26 (Proj)");
 
     // Connect the lines (Last history point is also first projection point)
     projDomestic[23] = lastHistDomestic;
     projFarmer[23] = lastHistFarmer;
 
-    // Calculate Projected Values based on SLIDERS
+    // Calculate Projected Values based on YOUR SLIDERS
     const projectedDomestic = 110 + (tariffInput * 0.9) + ((currentGlobalPrice - 1000) * 0.07);
     const projectedFarmer = Math.max(90, 100 + (tariffInput * 1.6));
 
@@ -227,7 +234,7 @@ const HistoricalAnalysis: React.FC<HistoricalAnalysisProps> = ({
     <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6 max-w-5xl mx-auto">
       <div className="flex justify-between items-center mb-4">
         <h3 className="text-lg font-semibold text-gray-900">
-          Historical vs. Projected Impact 
+          Historical vs. Projected Impact (2024 - 2026)
         </h3>
         <span className="text-xs font-medium px-2 py-1 bg-purple-100 text-purple-700 rounded border border-purple-200">
           Current Tariff: {tariffInput}%
@@ -244,12 +251,12 @@ const HistoricalAnalysis: React.FC<HistoricalAnalysisProps> = ({
           Notice the dips in May-Jun (Lean Season) and peaks in Oct-Jan (High Oil Content).
         </div>
         <div className="p-3 bg-gray-50 border rounded-lg">
-          <span className="font-bold text-gray-700 block mb-1">Price Guarantee (MSP)</span>
-          Green line flattens at bottom? That's the government safety net kicking in.
+          <span className="font-bold text-gray-700 block mb-1">Sep '24 Duty Hike</span>
+          The purple area steps up in late 2024, reflecting the government's protectionist policy.
         </div>
         <div className="p-3 bg-blue-50 border border-blue-200 rounded-lg">
-          <span className="font-bold text-blue-700 block mb-1">Your Projection</span>
-          Dashed lines show the predicted impact of your {tariffInput}% tariff input.
+          <span className="font-bold text-blue-700 block mb-1">Your Projection (Jan '26)</span>
+          Dashed lines show where the market goes if you set tariff to {tariffInput}%.
         </div>
       </div>
     </div>

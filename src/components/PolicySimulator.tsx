@@ -8,7 +8,7 @@ import { ArrowLeft, Sparkles } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { ExecutiveMemo } from './ExecutiveMemo';
 import { generateMemo } from '../utils/memoGenerator';
-import { MarketActorMap } from './MarketActorMap';
+import { ScenarioAnalysis } from './MarketActorMap';
 // import { StateAffordabilityHeatmap } from './StateAffordabilityHeatmap'; // Replaced by StateAnalysis
 // import { SensitivityAnalysis } from './SensitivityAnalysis';
 import HistoricalAnalysis from './HistoricalComparison';
@@ -378,10 +378,9 @@ export function PolicySimulator({ onBack, onLogout }: PolicySimulatorProps) {
             />
 
             <Tabs defaultValue="memo" className="w-full mt-6 ">
-              <TabsList className="grid w-full grid-cols-4">
+              <TabsList className="grid w-full grid-cols-3">
                 <TabsTrigger value="memo">Memo</TabsTrigger>
                 <TabsTrigger value="heatmap">States</TabsTrigger>
-                <TabsTrigger value="abm">ABM</TabsTrigger>
                 <TabsTrigger value="historical">History</TabsTrigger>
               </TabsList>
 
@@ -400,15 +399,7 @@ export function PolicySimulator({ onBack, onLogout }: PolicySimulatorProps) {
               </TabsContent>
 
               <TabsContent value="abm" className="mt-6">
-                <MarketActorMap agents={agents} />
-                <div className="mt-4 text-sm text-gray-700 bg-blue-50 p-4 rounded-lg border border-blue-200">
-                  <p className="font-medium mb-2">Agent-Based Modeling Insights:</p>
-                  <p>
-                    This visualization shows how different market participants (farmers, traders, investors, consumers, importers) 
-                    adjust their behavior in response to your policy parameters. Positive changes (green) indicate increased activity 
-                    or investment, while negative changes (red) indicate reduction or withdrawal.
-                  </p>
-                </div>
+                <ScenarioAnalysis/>
               </TabsContent>
 
               <TabsContent value="heatmap" className="mt-6">
