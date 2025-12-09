@@ -36,12 +36,12 @@ export function ExecutiveMemo({ memo }: ExecutiveMemoProps) {
   };
 
   return (
-    <Card className="p-8">
+    <Card className="p-8 border-2 border-gray-300 shadow bg-gray-100">
       {/* Header */}
       <div className="mb-6">
         <div className="flex items-start justify-between mb-4">
           <div>
-            <h2 className="mb-2">Executive Policy Memo</h2>
+            <h2 className="mb-2 text-xl font-bold">Executive Policy Memo</h2>
             <p className="text-sm text-gray-600">
               Chief Economic Advisor | Ministry of Commerce, India
             </p>
@@ -101,44 +101,6 @@ export function ExecutiveMemo({ memo }: ExecutiveMemoProps) {
           </p>
         </div>
       </div>
-
-      <Separator className="my-6" />
-
-      {/* XAI Rationale */}
-      <div>
-        <h3 className="mb-4">Explainable AI (XAI) Rationale</h3>
-        
-        <div className="space-y-4 mb-4">
-          <div>
-            <div className="flex justify-between mb-2">
-              <span className="text-sm">Tariff Influence</span>
-              <span className="text-sm">{memo.xaiRationale.tariffInfluence}%</span>
-            </div>
-            <Progress value={memo.xaiRationale.tariffInfluence} className="h-2" />
-          </div>
-          
-          <div>
-            <div className="flex justify-between mb-2">
-              <span className="text-sm">Global Price Influence</span>
-              <span className="text-sm">{memo.xaiRationale.priceInfluence}%</span>
-            </div>
-            <Progress value={memo.xaiRationale.priceInfluence} className="h-2" />
-          </div>
-          
-          <div>
-            <div className="flex justify-between mb-2">
-              <span className="text-sm">Yield Gap Influence</span>
-              <span className="text-sm">{memo.xaiRationale.gapInfluence}%</span>
-            </div>
-            <Progress value={memo.xaiRationale.gapInfluence} className="h-2" />
-          </div>
-        </div>
-
-        <p className="text-sm text-gray-700 leading-relaxed">
-          {memo.xaiRationale.summary}
-        </p>
-      </div>
-
       {/* Recommendations */}
       {memo.recommendations.length > 0 && (
         <>

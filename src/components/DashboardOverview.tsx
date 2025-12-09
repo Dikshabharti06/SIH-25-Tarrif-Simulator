@@ -20,8 +20,8 @@ export function DashboardOverview({ tariff, globalPrice, yieldGap, volatilityInd
   const overallRisk = volatilityIndex > 60 ? 'High' : volatilityIndex > 30 ? 'Moderate' : 'Low';
 
   return (
-    <Card className="p-6">
-      <h3 className="mb-4">Policy Impact Dashboard</h3>
+    <Card className="p-6 border-2 border-gray-300 shadow bg-gray-100">
+      <h3 className="mb-4 text-lg font-bold">Policy Impact Dashboard</h3>
       <p className="text-sm text-gray-600 mb-6">
         Real-time overview of key economic indicators based on your selected parameters
       </p>

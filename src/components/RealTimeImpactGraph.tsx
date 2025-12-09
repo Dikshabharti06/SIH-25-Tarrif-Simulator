@@ -50,10 +50,10 @@ export function RealTimeImpactGraph({ tariff, globalPrice, yieldGap }: RealTimeI
   };
 
   return (
-    <Card className="p-6">
+    <Card className="p-6 border-2 border-gray-300 shadow bg-gray-100">
       <div className="flex items-center gap-2 mb-4">
         <TrendingUp className="w-5 h-5 text-indigo-600" />
-        <h3>Real-Time Policy Impact Simulation</h3>
+        <p className='font-bold text-lg'>Real-Time Policy Impact Simulation</p>
       </div>
       <p className="text-sm text-gray-600 mb-4">
         Live visualization of how different tariff levels affect key economic indicators

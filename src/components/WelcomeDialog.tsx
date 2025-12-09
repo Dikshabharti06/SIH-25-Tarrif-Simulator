@@ -27,10 +27,10 @@ export function WelcomeDialog() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent
-        className="max-w-lg rounded-xl shadow-xl bg-white"
+        className="max-w-lg rounded-xl shadow-xl bg-white border border-gray-500 "
       >
         <DialogHeader>
-          <DialogTitle className="flex items-center gap-2 text-lg font-bold text-green-800">
+          <DialogTitle className="flex items-center gap-3 mb-2 text-lg font-bold text-green-800  border-b border-green-600">
             <Sparkles className="w-5 h-5 text-green-600" />
             Welcome to the CPO Policy Simulator
           </DialogTitle>
@@ -41,7 +41,7 @@ export function WelcomeDialog() {
         </DialogHeader>
 
         {/* Body */}
-        <div className="space-y-4 mt-4 text-sm">
+        <div className="space-y-4 mt-2 text-sm">
           <p className="text-gray-700 leading-relaxed">
             This platform helps policymakers visualize tariff-based impacts on
             farmers, consumers & government subsidy outlay.

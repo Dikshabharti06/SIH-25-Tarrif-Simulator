@@ -10,16 +10,15 @@ import { ExecutiveMemo } from './ExecutiveMemo';
 import { generateMemo } from '../utils/memoGenerator';
 import { MarketActorMap } from './MarketActorMap';
 // import { StateAffordabilityHeatmap } from './StateAffordabilityHeatmap'; // Replaced by StateAnalysis
-import { SensitivityAnalysis } from './SensitivityAnalysis';
-import { NMEOPTargetAnalysis } from './NMEOPTargetAnalysis';
-import { HistoricalComparison } from './HistoricalComparison';
+// import { SensitivityAnalysis } from './SensitivityAnalysis';
+import HistoricalAnalysis from './HistoricalComparison';
 import { ScenarioManager } from './ScenarioManager';
 import { RealTimeImpactGraph } from './RealTimeImpactGraph';
 import { FeatureGuide } from './FeatureGuide';
 import { QuickPresets } from './QuickPresets';
 import { DashboardOverview } from './DashboardOverview';
 import { WelcomeDialog } from './WelcomeDialog';
-import { StateAnalysis } from './StateAnalysis'; // Ensure this is imported
+import { StateAnalysis } from './StateAnalysis'; 
 import { calculateAgentBehavior } from '../data/agentModels';
 import Header from './Header';
 import GreenFooter from './footer/Footer';
@@ -165,7 +164,7 @@ export function PolicySimulator({ onBack, onLogout }: PolicySimulatorProps) {
     <>
       <Header onLogout={onLogout} userName="Admin User" />
       
-      <div className="container mx-auto px-4 py-8 max-w-[1600px]">
+      <div className="container mx-auto px-4 bg-gray-200 py-8 max-w-[1600px]">
         <WelcomeDialog />
         
         {/* Header Section */}
@@ -173,13 +172,13 @@ export function PolicySimulator({ onBack, onLogout }: PolicySimulatorProps) {
           <Button 
             variant="ghost" 
             onClick={onBack}
-            className="mb-4 rounded-lg text-gray-700 outline-1 bg-gray-200 hover:text-gray-800 hover:bg-green-100 transition-all duration-200 font-medium text-sm"
+            className="mb-4 rounded-lg text-gray-700 outline-1 bg-white hover:text-white hover:bg-gray-800 cursor-pointer transition-all duration-200 font-medium text-sm"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Home
           </Button>
           
-          <div className="flex items-start justify-between">
+          <div className=" flex items-start justify-between">
             <div>
               <h1 className='font-bold text-3xl'>CPO Policy Simulator</h1>
               <p className="text-gray-600 text-lg">
@@ -195,7 +194,7 @@ export function PolicySimulator({ onBack, onLogout }: PolicySimulatorProps) {
           <div className="lg:col-span-1 space-y-4">
             <QuickPresets onLoadPreset={handleLoadPreset} />
 
-            <Card className="p-6">
+            <Card className="p-6 border-2 border-gray-300 shadow bg-gray-100">
               <div className="flex items-center justify-between mb-6">
                 <p className='text-lg font-bold'>Interactive Parameters</p>
                 <p className="text-xs text-gray-500">Drag sliders or type values</p>
@@ -212,7 +211,7 @@ export function PolicySimulator({ onBack, onLogout }: PolicySimulatorProps) {
                         value={tariffInput}
                         onChange={(e) => handleTariffInputChange(e.target.value)}
                         onBlur={handleTariffInputBlur}
-                        className="w-20 h-8 text-sm text-right"
+                        className="w-20 h-8 text-sm text-right border-gray-400"
                         min={0}
                         max={30}
                         step={0.5}
@@ -248,7 +247,7 @@ export function PolicySimulator({ onBack, onLogout }: PolicySimulatorProps) {
                         value={priceInput}
                         onChange={(e) => handlePriceInputChange(e.target.value)}
                         onBlur={handlePriceInputBlur}
-                        className="w-24 h-8 text-sm text-right"
+                        className="w-25 h-8 text-sm text-right border-gray-400"
                         min={800}
                         max={1500}
                         step={10}
@@ -283,7 +282,7 @@ export function PolicySimulator({ onBack, onLogout }: PolicySimulatorProps) {
                         value={gapInput}
                         onChange={(e) => handleGapInputChange(e.target.value)}
                         onBlur={handleGapInputBlur}
-                        className="w-20 h-8 text-sm text-right"
+                        className="w-20 h-8 text-sm text-right border-gray-400"
                         min={30}
                         max={70}
                         step={1}
@@ -318,7 +317,7 @@ export function PolicySimulator({ onBack, onLogout }: PolicySimulatorProps) {
                         value={volatilityInput}
                         onChange={(e) => handleVolatilityInputChange(e.target.value)}
                         onBlur={handleVolatilityInputBlur}
-                        className="w-20 h-8 text-sm text-right"
+                        className="w-20 h-8 text-sm text-right border-gray-400"
                         min={0}
                         max={100}
                         step={5}
@@ -340,17 +339,12 @@ export function PolicySimulator({ onBack, onLogout }: PolicySimulatorProps) {
                     <span>Stable</span>
                     <span>Volatile</span>
                   </div>
-                  <p className="text-xs text-gray-600 mt-2">
-                    {volatilityIndex < 30 ? 'Low market instability' :
-                     volatilityIndex < 60 ? 'Moderate price fluctuations' :
-                     'High uncertainty - stress test scenario'}
-                  </p>
                 </div>
               </div>
 
               <Button 
                 onClick={handleGenerate}
-                className="w-full mt-8"
+                className="w-full mt-8 bg-black text-white"
                 disabled={isGenerating}
               >
                 {isGenerating ? (
@@ -360,7 +354,7 @@ export function PolicySimulator({ onBack, onLogout }: PolicySimulatorProps) {
                   </>
                 ) : (
                   <>
-                    <Sparkles className="w-4 h-4 mr-2 bg-black text-white" />
+                    <Sparkles className="w-4 h-4 mr-2 animate-pulse" />
                     Generate Executive Memo
                   </>
                 )}
@@ -368,11 +362,6 @@ export function PolicySimulator({ onBack, onLogout }: PolicySimulatorProps) {
             </Card>
 
             <RealTimeImpactGraph 
-              tariff={tariff}
-              globalPrice={globalPrice}
-              yieldGap={yieldGap}
-            />
-            <SensitivityAnalysis 
               tariff={tariff}
               globalPrice={globalPrice}
               yieldGap={yieldGap}
@@ -389,12 +378,11 @@ export function PolicySimulator({ onBack, onLogout }: PolicySimulatorProps) {
             />
 
             <Tabs defaultValue="memo" className="w-full mt-6 ">
-              <TabsList className="grid w-full grid-cols-5">
+              <TabsList className="grid w-full grid-cols-4">
                 <TabsTrigger value="memo">Memo</TabsTrigger>
-                <TabsTrigger value="abm">ABM</TabsTrigger>
                 <TabsTrigger value="heatmap">States</TabsTrigger>
+                <TabsTrigger value="abm">ABM</TabsTrigger>
                 <TabsTrigger value="historical">History</TabsTrigger>
-                <TabsTrigger value="nmeo">NMEO-OP</TabsTrigger>
               </TabsList>
 
               <TabsContent value="memo" className="mt-6">
@@ -428,14 +416,10 @@ export function PolicySimulator({ onBack, onLogout }: PolicySimulatorProps) {
               </TabsContent>
 
               <TabsContent value="historical" className="mt-6">
-                <HistoricalComparison 
-                  currentTariff={tariff}
+                <HistoricalAnalysis
+                  tariffInput={tariff}
                   currentGlobalPrice={globalPrice}
                 />
-              </TabsContent>
-
-              <TabsContent value="nmeo" className="mt-6">
-                <NMEOPTargetAnalysis currentYieldGap={yieldGap} />
               </TabsContent>
             </Tabs>
           </div>

@@ -162,12 +162,12 @@ export const StateAnalysis: React.FC = () => {
       <div className="grid lg:grid-cols-2 gap-6">
         
         {/* 1. STATE-WISE MAP */}
-        <Card className="p-4 border-gray-200">
+        <Card className="p-4 border-2 border-gray-300 shadow bg-gray-100">
             <div className="flex items-center gap-2 mb-2">
                 <Map className="w-5 h-5 text-indigo-600" />
                 <h3 className="font-bold text-gray-800">Production Hubs (NMEO-OP Clusters)</h3>
             </div>
-            <p className="text-xs text-gray-500 mb-4">Bubble size = Production Vol | Color = Revenue Generated</p>
+            <p className="text-xs text-gray-500 mb-2">Bubble size = Production Vol | Color = Revenue Generated</p>
             <div className="h-[400px] w-full bg-gray-50 rounded-lg overflow-hidden relative">
                 <Plot
                     data={mapData}
@@ -178,11 +178,11 @@ export const StateAnalysis: React.FC = () => {
                             center: { lat: 20, lon: 82 }, 
                             projection: { type: 'mercator', scale: 2.5 }, 
                             showland: true,
-                            landcolor: '#eefdf2',
-                            countrycolor: '#d1d5db',
-                            coastlinecolor: '#9ca3af',
+                            landcolor: 'green-100',
+                            countrycolor: 'green-100',
+                            coastlinecolor: 'green-200',
                             showocean: true,
-                            oceancolor: '#f0f9ff'
+                            oceancolor: 'blue-50'
                         },
                         margin: { l: 0, r: 0, t: 0, b: 0 },
                         showlegend: false,
@@ -194,19 +194,16 @@ export const StateAnalysis: React.FC = () => {
                     style={{ width: '100%', height: '100%' }}
                     config={{ displayModeBar: false, scrollZoom: false }}
                 />
-                <div className="absolute bottom-2 right-2 bg-white/80 p-2 rounded text-xs shadow-sm">
-                    Map: India Focus
-                </div>
             </div>
         </Card>
 
         {/* 2. SEASONAL YIELD GRAPH */}
-        <Card className="p-4 border-gray-200">
+        <Card className="p-4  border-2 border-gray-300 shadow bg-gray-100">
             <div className="flex items-center gap-2 mb-2">
                 <Calendar className="w-5 h-5 text-orange-600" />
                 <h3 className="font-bold text-gray-800">Seasonal Monthly Forecast</h3>
             </div>
-            <p className="text-xs text-gray-500 mb-4">Yield fluctuations due to Heat Stress & Monsoon</p>
+            <p className="text-xs text-gray-500 mb-2">Yield fluctuations due to Heat Stress & Monsoon</p>
             <div className="h-[400px] w-full">
                 <Plot
                     data={[
@@ -256,7 +253,7 @@ export const StateAnalysis: React.FC = () => {
       </div>
 
       {/* 3. AFFORDABILITY & REVENUE HEATMAP CARDS */}
-      <Card className="p-6">
+      <Card className="p-6 border-2 border-gray-300 shadow bg-gray-100">
         <div className="flex items-center justify-between mb-4">
              <div className="flex items-center gap-2">
                 <TrendingUp className="text-blue-600" />

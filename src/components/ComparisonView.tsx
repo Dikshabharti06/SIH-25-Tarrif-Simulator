@@ -41,7 +41,7 @@ export function ComparisonView({ scenarios }: ComparisonViewProps) {
   };
 
   return (
-    <Card className="p-6">
+    <Card className="p-6 border-2 border-gray-300 shadow bg-gray-100">
       <h3 className="mb-4">Scenario Comparison</h3>
       <div className="overflow-x-auto">
         <table className="w-full text-sm">

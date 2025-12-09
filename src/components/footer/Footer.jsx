@@ -135,7 +135,7 @@ const GreenFooter= () => {
           onClick={scrollTop}
           className="fixed bottom-6 right-6 bg-green-700 hover:bg-green-600 text-white p-3 rounded-full shadow-lg transition"
         >
-          <ArrowUpCircle size={26} />
+          {/* <ArrowUpCircle size={26} /> */}
         </button>
       )}
     </>

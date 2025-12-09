@@ -1,6 +1,5 @@
 import { Card } from './ui/card';
 import { Button } from './ui/button';
-import { Zap } from 'lucide-react';
 
 interface Preset {
   name: string;
@@ -57,10 +56,9 @@ export function QuickPresets({ onLoadPreset }: QuickPresetsProps) {
   ];
 
   return (
-    <Card className="p-6 border-2 border-gray-300">
-      <div className="flex items-center gap-1 mb-2">
-        <Zap className="w-5 h-5 text-yellow-600" />
-        <p className='font-bold text-xl'>Quick Scenario Presets</p>
+    <Card className="p-6 border-2 border-gray-300 shadow bg-gray-100">
+      <div className="flex flex-col items-center gap-1 mb-2">
+        <p className='font-bold text-lg'>Quick Scenario Presets</p>
       <p className="text-sm text-gray-600 mb-2">
         Load pre-configured scenarios to explore different policy approaches
       </p>

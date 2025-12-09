@@ -65,14 +65,14 @@ const Header: React.FC<HeaderProps> = ({
             </div>
 
             {/* --- HOVER CARD (Credentials) --- */}
-            <div className="absolute top-full mt-2 w-64 bg-white rounded-xl shadow-2xl p-4 opacity-0 border border-green-200 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2 z-50">
+            <div className="absolute top-full mt-2 w-64 bg-green-50 rounded-xl shadow-2xl p-4 opacity-0 border border-green-200 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2 z-50">
               
               {/* Card Header: Avatar + Status */}
               <div className="flex items-start justify-between mb-3">
                 <div className="w-12 h-12 rounded-full bg-green-800 text-white flex items-center justify-center font-bold text-lg">
                   {getInitials(userName)}
                 </div>
-                <div className="px-2 py-1 bg-green-50 rounded-full border border-green-200 flex items-center gap-1.5">
+                <div className="px-2 py-1 bg-white rounded-full border border-green-200 flex items-center gap-1.5">
                   <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
@@ -83,16 +83,10 @@ const Header: React.FC<HeaderProps> = ({
 
               {/* User Details */}
               <div className="space-y-1">
-                <p className="text-sm font-bold text-gray-900">{userName}</p>
-                <p className="text-xs text-gray-800 font-medium wrap-break-word bg-gray-200 p-1.5 rounded border border-gray-100">
+                <p className="text-sm font-bold text-gray-800">{userName}</p>
+                <p className="text-sm text-gray-800 mb-2 font-medium wrap-break-word bg-white rounded border border-green-200 shadow p-1">
                   {userEmail}
                 </p>
-              </div>
-
-              {/* Role Badge (Optional extra context) */}
-              <div className="mt-3 pt-3 border-t border-gray-100 flex justify-between items-center">
-                 <span className="text-[10px] font-bold text-gray-800 uppercase">Role</span>
-                 <span className="text-[10px] font-bold text-green-800 bg-green-100 px-2 py-0.5 rounded">ADMINISTRATOR</span>
               </div>
             </div>
           </div>

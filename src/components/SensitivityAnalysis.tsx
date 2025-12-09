@@ -33,12 +33,12 @@ export function SensitivityAnalysis({ tariff, globalPrice, yieldGap }: Sensitivi
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline" className="w-full  bg-black text-white">
+        <Button variant="outline" className="w-full bg-black text-white">
           <FileText className="w-4 h-4 mr-2" />
           View Sensitivity Analysis
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-3xl max-h-[80vh] overflow-y-auto  bg-white">
+      <DialogContent className="max-w-3xl max-h-[80vh] overflow-y-auto border-gray-400 shadow-xl bg-white">
         <DialogHeader>
           <DialogTitle>Model Sensitivity Analysis Report</DialogTitle>
           <DialogDescription>
