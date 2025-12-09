@@ -90,13 +90,6 @@ export function LoadingPage({ onStart, onLogout }: LandingPageProps) {
               onClick={() => setIsDialogOpen(true)}
               active
             />
-            <SidebarItem
-              icon={<History size={22} />}
-              label="Simulation History"
-              description="Past runs & results."
-              onClick={() => alert("History coming soon")}
-            />
-            
             {/* GLOBAL IMPORTS CLICK HANDLER */}
             <SidebarItem
               icon={<Globe size={22} />}
