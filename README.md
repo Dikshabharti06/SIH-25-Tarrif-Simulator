@@ -19,7 +19,7 @@ A Smart India Hackathon (SIH) project focused on simulating and analyzing the im
 - Backend Integration
 - Data Visualization
 
-## Run `npm i` to install the dependencies.
+### Run `npm i` to install the dependencies.
 
-## Run `npm run dev` to start the development server.
+### Run `npm run dev` to start the development server.
   
