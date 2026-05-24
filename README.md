@@ -1,11 +1,25 @@
+# Palm Oil Tariff Simulator
 
-  # Generate Executive Memo
+A Smart India Hackathon (SIH) project focused on simulating and analyzing the impact of palm oil tariffs on market pricing, trade flow, and economic factors. The platform helps visualize tariff changes and their influence on import costs, pricing trends, and related trade dynamics through interactive simulations and data-driven insights.
 
-  This is a code bundle for Generate Executive Memo. The original project is available at https://www.figma.com/design/DYoXuhkgPyGi6c7uu2sECv/Generate-Executive-Memo.
+## Features
+- Tariff impact simulation
+- Interactive data visualization
+- Market trend analysis
+- User-friendly dashboard
+- Dynamic pricing calculations
+- Economic insight representation
 
-  ## Running the code
+## Tech Stack
+- React.js
+- TypeScript
+- JavaScript
+- HTML
+- CSS
+- Backend Integration
+- Data Visualization
 
-  Run `npm i` to install the dependencies.
+## Run `npm i` to install the dependencies.
 
-  Run `npm run dev` to start the development server.
+## Run `npm run dev` to start the development server.
   
